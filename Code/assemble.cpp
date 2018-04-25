@@ -63,6 +63,12 @@ void buildnetwork(int n_papers, vector <paper_data> &paperlist, vector< vector <
 			paperlist[indx].pbc_venue = s;
 		}
 		else if(c=='i'){
+			// try{
+			// 	indx = stoi(s.substr(4))-1;
+			// } catch (const char *msg){
+			// 	cerr << msg << " i_string:" << s.substr(4) << endl;
+			// }
+			// cout << "i_string: " << stoi(s.substr(4)) << endl;
 			indx = stoi(s.substr(4))-1;
 			paper_id = indx+1;
 			paperlist[indx].index = paper_id;
@@ -71,6 +77,12 @@ void buildnetwork(int n_papers, vector <paper_data> &paperlist, vector< vector <
 			string temp = to_string(paper_id) + " " + s;
 			outfile << temp << endl;
 			paperlist[indx].references.push_back(stoi(s));
+			// try{
+			// 	Z[indx].push_back(stoi(s)-1);
+			// } catch (const char *msg){
+			// 	cerr << msg << " c_string:" << s << endl;
+			// }
+			// cout << "c_string: " << s << endl;
 			Z[indx].push_back(stoi(s)-1);
 		}
 		else if(c=='!'){
@@ -79,9 +91,9 @@ void buildnetwork(int n_papers, vector <paper_data> &paperlist, vector< vector <
 		else{
 			continue;
 		}
-		// if(paper_id%1000==0){
-		// 	cout << "Paper id "<< paper_id << endl;
-		// }
+		if(paper_id%1000==0){
+			cout << "Paper id "<< paper_id << endl;
+		}
 	}
 	infile.close();
 	outfile.close();

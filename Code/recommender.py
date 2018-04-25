@@ -13,7 +13,7 @@ path = [int(i) for i in (nodedict.get(paper_id)[0].split(':'))]
 # Expert, Classic, invalid choice cases
 
 recommendation=[]
-no_of_recos = 10
+no_of_recos = 20
 
 if(rec_choice==0):
 	temp=arr

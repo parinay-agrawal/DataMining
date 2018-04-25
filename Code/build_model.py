@@ -4,8 +4,9 @@ import pickle
 ##########################################################
 # Opening the tree file. Only the node and path columns are important, others can be dropped.
 
-df = pandas.read_table("InputGraph.tree", delim_whitespace=True)
-df = df.drop(columns=['flow','name'])
+df = pandas.read_table("InputTree.tree", delim_whitespace=True)
+df.columns = ['path', 'flow', 'name', 'node']
+df = df.drop(['flow','name'], axis=1)
 
 ############################################################
 # To create the dictionary of node and corresponding paths that will help in recommendation.
